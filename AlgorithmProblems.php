@@ -61,8 +61,71 @@ function timeConversion($s) {
 
     return "".$hhh.":".$mmm.":".$sss."";
 
+}
+
+function gradingStudents($grades) {
+    // Write your code here
+    $c = count($grades);
+    $r = [];
+    if($c >= 1 && $c <= 60){
+        for($i = 0; $i < $c;$i++){
+            if($grades[$i] >= 0 && $grades[$i] <=100){
+                if($grades[$i]<38){
+                    $r[$i] = $grades[$i];
+                }else{
+                    $b = floor($grades[$i]/5);
+                    $e = ($b * 5)+5 ;
+                    $d = $e - $grades[$i];
+                    if($d < 3){
+                        $r[$i] = $e;
+                    }else{
+                        $r[$i] = $grades[$i];
+                    }
+                }
+            }
+        }
+    }
+    return $r;
+}
 
 
+function countApplesAndOranges($s, $t, $a, $b, $apples, $oranges)
+{
+    $range = pow(10, 5);
+    $app = count($apples);
+    $org = count($oranges);
+    $ap = 0;
+    $or = 0;
 
+    if ($s >= 1 && $s <= 100
+        && $s >= 1 && $s <= 100
+        && $t >= 1 && $t <= 100
+        && $a >= 1 && $a <= 100
+        && $b >= 1 && $b <= 100
+        && $app >= 1 && $app <= 100
+        && $org >= 1 && $org <= 100) {
 
+        if ($a < $s && $s < $t && $t < $b) {
+            for ($i = 0; $i < $app; $i++) {
+                if ($apples[$i] >= -$range && $apples[$i] <= $range) {
+                    $j = $a + $apples[$i];
+                    if ($j >= $s && $j <= $t) {
+                        $ap++;
+                    }
+                }
+            }
+            for ($k = 0; $k < $org; $k++) {
+                if ($oranges[$i] >= -$range && $oranges[$i] <= $range) {
+                    $j = $b + $oranges[$i];
+
+                    if ($j >= $s && $j <= $t) {
+                        $or++;
+                    }
+                }
+            }
+
+        }
+    }
+    echo "" . $app . "\n";
+    echo "" . $org . "\n";
 }
