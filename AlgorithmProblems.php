@@ -97,13 +97,12 @@ function countApplesAndOranges($s, $t, $a, $b, $apples, $oranges)
     $ap = 0;
     $or = 0;
 
-    if ($s >= 1 && $s <= 100
-        && $s >= 1 && $s <= 100
-        && $t >= 1 && $t <= 100
-        && $a >= 1 && $a <= 100
-        && $b >= 1 && $b <= 100
-        && $app >= 1 && $app <= 100
-        && $org >= 1 && $org <= 100) {
+    if ($s >= 1 && $s <= $range
+        && $t >= 1 && $t <= $range
+        && $a >= 1 && $a <= $range
+        && $b >= 1 && $b <= $range
+        && $app >= 1 && $app <= $range
+        && $org >= 1 && $org <= $range) {
 
         if ($a < $s && $s < $t && $t < $b) {
             for ($i = 0; $i < $app; $i++) {
@@ -115,9 +114,8 @@ function countApplesAndOranges($s, $t, $a, $b, $apples, $oranges)
                 }
             }
             for ($k = 0; $k < $org; $k++) {
-                if ($oranges[$i] >= -$range && $oranges[$i] <= $range) {
-                    $j = $b + $oranges[$i];
-
+                if ($oranges[$k] >= -$range && $oranges[$k] <= $range) {
+                    $j = $b + $oranges[$k];
                     if ($j >= $s && $j <= $t) {
                         $or++;
                     }
@@ -126,6 +124,6 @@ function countApplesAndOranges($s, $t, $a, $b, $apples, $oranges)
 
         }
     }
-    echo "" . $app . "\n";
-    echo "" . $org . "\n";
+    echo "" . $ap . "\n";
+    echo "" . $or . "\n";
 }
